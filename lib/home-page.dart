@@ -6,19 +6,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _lights = false;
+  bool _colors = false;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () {
-        setState(() {
-          _lights = !_lights;
-        });
-      },
-      child: Container(
-        color: _lights ? Colors.green : Colors.redAccent,
+    return MaterialApp(
+      home: Scaffold(
+           body: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              setState(() {
+                _colors = !_colors;
+              });
+            },
+            child: Container(
+                child: TextPrint(),
+                color: _colors ? Colors.green : Colors.redAccent
+            ),
+          ),
         ),
     );
   }
+}
+
+Widget TextPrint() {
+  return Center(
+      child: Text("Hey there")
+  );
 }
