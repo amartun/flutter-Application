@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -6,31 +7,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _colors = false;
+  Random random = new Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-           body: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              setState(() {
-                _colors = !_colors;
-              });
-            },
-            child: Container(
-                child: TextPrint(),
-                color: _colors ? Colors.green : Colors.redAccent
-            ),
-          ),
+        body: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            setState(() {});
+          },
+          child: Container(
+              child: TextPrint(),
+              color: Color((random.nextDouble() * 0xFFFFFF).toInt())
+                  .withOpacity(1.0)),
         ),
+      ),
     );
   }
 }
 
 Widget TextPrint() {
-  return Center(
-      child: Text("Hey there")
-  );
+  return Center(child: Text("Hey there"));
 }
