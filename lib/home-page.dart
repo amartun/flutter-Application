@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: non_constant_identifier_names
 Widget TextPrint() {
   return Center(child: Text("Hey there"));
 }
